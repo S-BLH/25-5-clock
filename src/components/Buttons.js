@@ -23,9 +23,8 @@ const Component3 = () => {
       <button id="start_stop" type="button" onClick={handleStartStop}>Start/Stop</button>
       <button id="reset" type="button" onClick={handleReset}>Reset</button>
       <audio id="beep" ref={audioRef} src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav">
-       <track kind="none" />
-         </audio>
-        <track kind="metadata" />
+        <track kind="none" />
+      </audio>
     </div>
   );
 };
