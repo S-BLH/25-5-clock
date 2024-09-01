@@ -1,17 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  setTimer, 
-  toggleSession, 
-  setBreakLength, 
-  setSessionLength, 
-  resetTimer, 
-  toggleTimer 
+import {
+  setTimer,
+  toggleSession,
+  setBreakLength,
+  setSessionLength,
+  resetTimer,
+  toggleTimer,
 } from './redux/actions';
 
 function App() {
   const dispatch = useDispatch();
-  const { timer, isRunning, isSession, breakLength, sessionLength } = useSelector((state) => state);
+  const {
+    timer, isRunning, isSession, breakLength, sessionLength,
+  } = useSelector((state) => state);
   const audioRef = useRef(null);
   const intervalRef = useRef(null);
 
