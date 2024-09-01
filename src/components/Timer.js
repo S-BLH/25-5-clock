@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Component1 = () => {
-  const { timer, isSession } = useSelector(state => state);
+  const { timer, isSession } = useSelector((state => state));
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60).toString().padStart(2, '0');
