@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTimer, toggleSession, setBreakLength, setSessionLength, resetTimer, toggleTimer } from './redux/actions';
+import { 
+  setTimer, 
+  toggleSession, 
+  setBreakLength, 
+  setSessionLength, 
+  resetTimer, 
+  toggleTimer 
+} from './redux/actions';
 
 function App() {
   const dispatch = useDispatch();
-  const { timer, isRunning, isSession, breakLength, sessionLength } = useSelector(state => state);
+  const { timer, isRunning, isSession, breakLength, sessionLength } = useSelector((state) => state);
   const audioRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -22,16 +29,16 @@ function App() {
 
   useEffect(() => {
     if (timer < 0) {
-      audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+      audioRef.current.play().catch((e) => console.error('Audio play failed:', e));
       dispatch(toggleSession());
       dispatch(setTimer(isSession ? breakLength * 60 : sessionLength * 60));
     }
   }, [timer, isSession, breakLength, sessionLength, dispatch]);
 
   const formatTime = (time) => {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
 
   const handleReset = () => {
@@ -73,26 +80,28 @@ function App() {
       <div className="length-controls">
         <div>
           <div id="break-label">Break Length</div>
-          <button id="break-decrement" onClick={handleBreakDecrease}>-</button>
+          <button id="break-decrement" type="button" onClick={handleBreakDecrease}>-</button>
           <span id="break-length">{breakLength}</span>
-          <button id="break-increment" onClick={handleBreakIncrease}>+</button>
+          <button id="break-increment" type="button" onClick={handleBreakIncrease}>+</button>
         </div>
         <div>
           <div id="session-label">Session Length</div>
-          <button id="session-decrement" onClick={handleSessionDecrease}>-</button>
+          <button id="session-decrement" type="button" onClick={handleSessionDecrease}>-</button>
           <span id="session-length">{sessionLength}</span>
-          <button id="session-increment" onClick={handleSessionIncrease}>+</button>
+          <button id="session-increment" type="button" onClick={handleSessionIncrease}>+</button>
         </div>
       </div>
       <div className="timer-display">
         <div id="timer-label">{isSession ? 'Session' : 'Break'}</div>
         <div id="time-left">{formatTime(timer)}</div>
       </div>
-      <button id="start_stop" onClick={() => dispatch(toggleTimer())}>
+      <button id="start_stop" type="button" onClick={() => dispatch(toggleTimer())}>
         {isRunning ? 'Stop' : 'Start'}
       </button>
-      <button id="reset" onClick={handleReset}>Reset</button>
-      <audio id="beep" ref={audioRef} src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
+      <button id="reset" type="button" onClick={handleReset}>Reset</button>
+      <audio id="beep" ref={audioRef} src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav">
+        <track kind="none" />
+      </audio>
     </div>
   );
 }
