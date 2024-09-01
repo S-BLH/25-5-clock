@@ -18,7 +18,7 @@ body {
   justify-content: space-around;
   margin-bottom: 20px;
 }
-  
+
 .timer-display {
   border: 2px solid white;
   border-radius: 50px;
@@ -44,7 +44,8 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#break-length, #session-length {
+#break-length,
+#session-length {
   display: inline-block;
   margin: 0 10px;
   font-size: 18px;
