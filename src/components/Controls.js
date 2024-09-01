@@ -23,13 +23,13 @@ const Component2 = () => {
         <div id="break-label">Break Length</div>
         <button id="break-decrement" type="button" onClick={() => handleLengthChange('break', -1)}>-</button>
         <div id="break-length">{breakLength}</div>
-        <button id="break-increment" onClick={() => handleLengthChange('break', 1)}>+</button>
+        <button id="break-increment" type="button" onClick={() => handleLengthChange('break', 1)}>+</button>
       </div>
       <div>
         <div id="session-label">Session Length</div>
-        <button id="session-decrement" onClick={() => handleLengthChange('session', -1)}>-</button>
+        <button id="session-decrement" type="button" onClick={() => handleLengthChange('session', -1)}>-</button>
         <div id="session-length">{sessionLength}</div>
-        <button id="session-increment" onClick={() => handleLengthChange('session', 1)}>+</button>
+        <button id="session-increment" type="button" onClick={() => handleLengthChange('session', 1)}>+</button>
       </div>
     </div>
   );
