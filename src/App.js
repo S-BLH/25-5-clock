@@ -31,12 +31,12 @@ function App() {
 
   useEffect(() => {
     if (timer < 0) {
-      audioRef.current.play().catch((e) => console.error('Audio play failed:', e));
+      audioRef.current.play();
       dispatch(toggleSession());
       dispatch(setTimer(isSession ? breakLength * 60 : sessionLength * 60));
     }
   }, [timer, isSession, breakLength, sessionLength, dispatch]);
-
+  
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
