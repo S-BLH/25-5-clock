@@ -36,7 +36,7 @@ function App() {
       dispatch(setTimer(isSession ? breakLength * 60 : sessionLength * 60));
     }
   }, [timer, isSession, breakLength, sessionLength, dispatch]);
-  
+
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -102,8 +102,8 @@ function App() {
       </button>
       <button id="reset" type="button" onClick={handleReset}>Reset</button>
       <audio id="beep" ref={audioRef} src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav">
-        <track kind="none" />
-      </audio>
+      <track kind="none" />
+       </audio>
     </div>
   );
 }
