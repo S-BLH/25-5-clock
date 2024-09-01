@@ -9,27 +9,27 @@ export const TOGGLE_SESSION = 'TOGGLE_SESSION';
 // Action Creators
 export const setBreakLength = (length) => ({
   type: SET_BREAK_LENGTH,
-  payload: length
+  payload: length,
 });
 
 export const setSessionLength = (length) => ({
   type: SET_SESSION_LENGTH,
-  payload: length
+  payload: length,
 });
 
 export const setTimer = (time) => ({
   type: SET_TIMER,
-  payload: time
+  payload: time,
 });
 
 export const resetTimer = () => ({
-  type: RESET_TIMER
+  type: RESET_TIMER,
 });
 
 export const toggleTimer = () => ({
-  type: TOGGLE_TIMER
+  type: TOGGLE_TIMER,
 });
 
 export const toggleSession = () => ({
-  type: TOGGLE_SESSION
+  type: TOGGLE_SESSION,
 });
