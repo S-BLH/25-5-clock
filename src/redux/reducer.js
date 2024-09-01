@@ -1,4 +1,6 @@
-import { SET_BREAK_LENGTH, SET_SESSION_LENGTH, SET_TIMER, RESET_TIMER, TOGGLE_TIMER, TOGGLE_SESSION } from './actions';
+import {
+  SET_BREAK_LENGTH, SET_SESSION_LENGTH, SET_TIMER, RESET_TIMER, TOGGLE_TIMER, TOGGLE_SESSION }
+  from './actions';
 
 const initialState = {
   breakLength: 5,
